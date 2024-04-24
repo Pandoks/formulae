@@ -24,7 +24,7 @@ class PnpmAT8 < Formula
 
   depends_on "node" => [:build, :test]
 
-  conflicts_with "corepack", because: "both installs `pnpm` and `pnpx` binaries"
+  keg_only :versioned_formula
 
   def install
     libexec.install buildpath.glob("*")
