@@ -22,14 +22,16 @@ class PnpmAT8 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ea36ce48c3435f17c6c3f59ca1f0113d7111f5ddb15ed665d2b2265fb374e816"
   end
 
+  keg_only :versioned_formula
+
   depends_on "node" => [:build, :test]
 
   def install
     libexec.install buildpath.glob("*")
-    bin.install_symlink "#{libexec}/bin/pnpm.cjs" => "pnpm"
-    bin.install_symlink "#{libexec}/bin/pnpx.cjs" => "pnpx"
+    bin.install_symlink "#{libexec}/bin/pnpm.cjs" => "pnpm@8"
+    bin.install_symlink "#{libexec}/bin/pnpx.cjs" => "pnpx@8"
 
-    generate_completions_from_executable(bin/"pnpm", "completion")
+    generate_completions_from_executable(bin/"pnpm@8", "completion")
 
     # remove non-native architecture pre-built binaries
     (libexec/"dist").glob("reflink.*.node").each do |f|
@@ -41,7 +43,7 @@ class PnpmAT8 < Formula
 
   def caveats
     <<~EOS
-      pnpm requires a Node installation to function. You can install one with:
+      pnpm@8 requires a Node installation to function. You can install one with:
         brew install node
     EOS
   end
