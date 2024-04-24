@@ -22,8 +22,6 @@ class PnpmAT8 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ea36ce48c3435f17c6c3f59ca1f0113d7111f5ddb15ed665d2b2265fb374e816"
   end
 
-  keg_only :versioned_formula
-
   depends_on "node" => [:build, :test]
 
   def install
