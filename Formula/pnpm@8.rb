@@ -49,7 +49,7 @@ class PnpmAT8 < Formula
   end
 
   test do
-    system "#{bin}/pnpm", "init"
+    system "#{bin}/pnpm@8", "init"
     assert_predicate testpath/"package.json", :exist?, "package.json must exist"
   end
 end
