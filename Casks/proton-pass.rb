@@ -7,6 +7,11 @@ cask "proton-pass" do
   desc "Desktop client for Proton Pass"
   homepage "https://proton.me/pass"
 
+  livecheck do
+    # TODO: add when Proton Pass releases resource
+    skip "No version information available"
+  end
+
   auto_updates true
   depends_on macos: ">= :ventura"
 
